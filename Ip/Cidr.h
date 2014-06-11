@@ -26,12 +26,12 @@ namespace Ip
 		static bool build(uint32_t, uint32_t, std::vector<Cidr>&);
 		static std::vector<Cidr> optimize(std::vector<Cidr>&);
 		
-		bool operator<(Cidr &rhs) const { 
-			if (start != rhs.getAddress()) {
-				return start < rhs.getAddress();
+		bool operator<(Cidr const rhs) const {
+			if (start != rhs.start) {
+				return start < rhs.start;
 			}
 
-			return mask < rhs.getMask();
+			return mask < rhs.mask;
 		}
 
 	private:

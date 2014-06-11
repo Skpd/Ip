@@ -4,8 +4,12 @@
 #include <iostream>
 #include <istream>
 #include <vector>
-#include <WinSock2.h>
-#pragma comment(lib,"ws2_32.lib")
+#ifdef _MSVC
+    #include <WinSock2.h>
+    #pragma comment(lib,"ws2_32.lib")
+#else
+    #include <arpa/inet.h>
+#endif
 
 #include "Single.h"
 
